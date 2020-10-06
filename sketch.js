@@ -5,6 +5,7 @@ var constraints = { video: { facingMode: "environment" }, audio: false };
 var curpyr, prevpyr, pointCount, pointStatus, prevxy, curxy;
 var w,h;
 var maxPoints = 1;
+var socket;
 
 //app variables
 var startApp = true;
@@ -24,9 +25,18 @@ var upRight = false;
 var repCount=0;
 var squatCleared = false;
 var fixedPoint = [];
+var unique_username;
+var inp;
 
 window.addEventListener("deviceorientation", handleOrientation, true);
 window.addEventListener('load',cameraStart,true);
+
+function register_user() {
+    var data = {
+        unique_username: unique_username,
+    };
+    socket.emit('register_user',data);
+}
 
 function mousePressed() {
     if(pointCount <maxPoints){
@@ -38,10 +48,34 @@ function mousePressed() {
 
 }
 
+function startGame(){
+    unique_username = inp.value();
+    register_user();
+}
+
 function setup() {
 
     w = windowWidth;
     h = windowHeight;
+
+    socket = io();
+
+    col = color(235,81,15);
+
+    fontCol = color(255);
+    gameButton = createButton('Start Game');
+    gameButton.mouseClicked(startGame);
+    gameButton.size(100,75);
+    gameButton.position(100,130);
+    gameButton.style('background-color',col);
+    gameButton.style("font-size", "18px");
+    gameButton.style('text-align', 'center');
+
+    inp = createInput('').attribute('placeholder', 'Name');
+    inp.position(100,130+85);
+    inp.size(100,40);
+    inp.style('font-size', '18px');
+    inp.style('text-align', 'center');
 
     //Getting DPI(Dots Per Inch) of screen. Needed for pixel to inch converson
     dpi_x = document.getElementById('testdiv').offsetWidth;

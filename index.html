@@ -1,17 +1,43 @@
-<html><head>
-    <meta charset="UTF-8">
-    <title>PointTracking</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fiddler Hero</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="p5.min.js"></script>
+
     <script src="p5.dom.min.js"></script>
+
     <script src="jsfeat-min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/tone@13.4.9/build/Tone.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/ui@0.0.8/build/tonejs-ui.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+
+    <div id='testdiv' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
+
+    <script src="sketch.js"></script>
+
+
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+
 </head>
 
 <body>
-<div id='testdiv' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
-<script src="sketch.js"></script>
+
 </body>
+
 </html>
