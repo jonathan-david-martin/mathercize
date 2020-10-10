@@ -63,7 +63,7 @@ function setup() {
     col = color(235,81,15);
 
     fontCol = color(255);
-    gameButton = createButton('Start Game');
+    gameButton = createButton('Submit');
     gameButton.mouseClicked(startGame);
     gameButton.size(100,75);
     gameButton.position(100,130);
